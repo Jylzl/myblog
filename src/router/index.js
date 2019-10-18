@@ -1,29 +1,17 @@
+/**
+ * @description: 路由配置
+ * @author: lizlong<94648929@qq.com>
+ * @since: 2019-08-05 14:28:33
+ * @LastAuthor: lizlong
+ * @lastTime: 2019-10-18 11:13:08
+ */
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+import Router from 'vue-router'
+import {
+  routes
+} from './routes'
+Vue.use(Router)
+export default new Router({
+  mode: "history",
   routes
 })
-
-export default router
