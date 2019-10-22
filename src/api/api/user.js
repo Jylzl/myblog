@@ -3,15 +3,15 @@
  * @author: lizlong<94648929@qq.com>
  * @since: 2019-10-18 10:02:57
  * @LastAuthor: lizlong
- * @lastTime: 2019-10-18 10:18:45
+ * @lastTime: 2019-10-22 16:39:41
  */
 import request from '@/utils/request'
-import api from '@/api/api';
+import user from '@/api/url/user';
 
 // 用户登陆
 export function login(data) {
   return request({
-    url: api.userLogin,
+    url: user.userLogin,
     method: 'post',
     data
   })
@@ -20,7 +20,7 @@ export function login(data) {
 // 用户退出
 export function logout() {
   return request({
-    url: api.userLogout,
+    url: user.userLogout,
     method: 'post'
   })
 }
@@ -28,7 +28,7 @@ export function logout() {
 // 用户权限
 export function getUserPerms(data) {
   return request({
-    url: api.userPerms,
+    url: user.userPerms,
     method: 'get',
     params: data
   })
@@ -37,7 +37,7 @@ export function getUserPerms(data) {
 // 用户信息
 export function getUserInfo(token) {
   return request({
-    url: api.userInf,
+    url: user.userInf,
     method: 'get',
     params: {
       token
