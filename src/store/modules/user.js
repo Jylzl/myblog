@@ -3,13 +3,9 @@
  * @author: lizlong<94648929@qq.com>
  * @since: 2019-10-18 09:52:43
  * @LastAuthor: lizlong
- * @lastTime: 2019-10-18 11:21:16
+ * @lastTime: 2019-10-22 18:13:51
  */
-import {
-  login,
-  logout,
-  getUserInfo
-} from '@/api/user'
+import service from "@/api";
 import {
   getToken,
   setToken,
@@ -52,7 +48,7 @@ const actions = {
       password
     } = userInfo
     return new Promise((resolve, reject) => {
-      login({
+      service.login({
         username: username.trim(),
         password: password
       }).then(response => {
@@ -74,7 +70,7 @@ const actions = {
     state
   }) {
     return new Promise((resolve, reject) => {
-      getUserInfo(state.token).then(response => {
+      service.getUserInfo(state.token).then(response => {
         const {
           data
         } = response
@@ -112,7 +108,7 @@ const actions = {
     state
   }) {
     return new Promise((resolve, reject) => {
-      logout(state.token).then(() => {
+      service.logout(state.token).then(() => {
         commit('SET_TOKEN', '')
         commit('SET_ROLES', [])
         removeToken()

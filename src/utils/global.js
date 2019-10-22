@@ -3,19 +3,17 @@
  * @author: lizlong<94648929@qq.com>
  * @since: 2019-06-02 10:57:10
  * @LastAuthor: lizlong
- * @lastTime: 2019-10-18 11:24:35
+ * @lastTime: 2019-10-22 18:16:13
  */
 
-import service from "@/utils/request";
-import api from "@/api/api";
+import service from "@/api";
 import code from "@/code/code";
 import moment from "moment";
 moment.locale('zh-cn');
 
 export default {
     install(Vue) {
-        Vue.prototype.$axios = service; //axios全局方法(正常form提交)
-        Vue.prototype.$api = api; //api地址全局方法
+        Vue.prototype.$service = service; //axios全局方法(正常form提交)
         Vue.prototype.$code = code; //code状态码全局方法
 
         //自定义类型的提示，默认警告
